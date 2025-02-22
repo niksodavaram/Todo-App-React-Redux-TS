@@ -1,49 +1,36 @@
+// src/components/Button/Button.tsx
+
 import React from 'react';
 
-interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary?: boolean;
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
-  /**
-   * Optional className
-   */
-  className?: string;
-  /**
-   * Optional disabled state
-   */
+export interface ButtonProps {
+  children?: React.ReactNode;
+  variant?: 'primary' | 'secondary';
+  size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
+  isLoading?: boolean;
+  className?: string;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  'aria-label'?: string;
 }
 
-export const Button = ({
-  primary = false,
-  label,
-  onClick,
-  className = '',
+export const Button: React.FC<ButtonProps> = ({
+  children,
+  variant = 'primary',
+  size = 'medium',
   disabled = false,
-}: ButtonProps) => {
-  const baseStyles = "px-4 py-2 rounded font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2";
-  const primaryStyles = primary
-    ? "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500"
-    : "bg-gray-200 text-gray-700 hover:bg-gray-300 focus:ring-gray-500";
-  const disabledStyles = disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer";
-
+  isLoading = false,
+  className = '',
+  onClick,
+  'aria-label': ariaLabel,
+}) => {
   return (
     <button
-      type="button"
-      className={`${baseStyles} ${primaryStyles} ${disabledStyles} ${className}`}
+      className={`btn btn-${variant} btn-${size} ${className}`}
+      disabled={disabled || isLoading}
       onClick={onClick}
-      disabled={disabled}
+      aria-label={ariaLabel}
     >
-      {label}
+      {isLoading ? <span data-testid="loading-spinner">Loading...</span> : children}
     </button>
   );
 };

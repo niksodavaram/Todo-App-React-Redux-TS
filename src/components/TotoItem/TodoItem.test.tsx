@@ -1,7 +1,7 @@
 // src/components/__tests__/TodoItem.test.tsx
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import TodoItem from '../TodoItem';
+import TodoItem from './TodoItem';
 
 describe('TodoItem', () => {
   const mockTodo = {

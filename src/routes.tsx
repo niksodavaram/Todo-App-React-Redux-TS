@@ -1,6 +1,6 @@
 // src/routes.ts
 import React from 'react';
-import TodoList from './components/TodoList';
+import TodoList from './components/TodoList/TodoList';
 
 interface Route {
   path: string;
@@ -10,7 +10,7 @@ interface Route {
 const routes: Route[] = [
   {
     path: '/',
-    element: <TodoList />,  
+    element: <TodoList />,
   },
 ];
 

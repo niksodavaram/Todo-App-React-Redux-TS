@@ -1,7 +1,7 @@
 // src/App.tsx
 import React, { JSX } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import TodoList from './components/TodoList';
+import TodoList from './components/TodoList/TodoList';
 import routes from './routes';
 
 function App(): JSX.Element {

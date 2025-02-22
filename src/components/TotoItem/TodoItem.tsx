@@ -1,4 +1,5 @@
 // src/components/TodoItem.tsx
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 import React from 'react';
 
 interface TodoItemProps {
@@ -22,7 +23,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle }) => {
       />
       <span
         style={{
-          textDecoration: todo.completed ? 'line-through' : 'none'
+          textDecoration: todo.completed ? 'line-through' : 'none',
         }}
       >
         {todo.text}

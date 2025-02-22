@@ -3,7 +3,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import TodoList from '../TodoList';
+import TodoList from './TodoList';
 import { addTodo, toggleTodo } from '../../store/reducers';
 
 const mockStore = configureStore([]);
@@ -25,7 +25,7 @@ describe('TodoList', () => {
     render(
       <Provider store={store}>
         <TodoList />
-      </Provider>
+      </Provider>,
     );
 
     expect(screen.getByText('Todo List')).toBeInTheDocument();
@@ -37,7 +37,7 @@ describe('TodoList', () => {
     render(
       <Provider store={store}>
         <TodoList />
-      </Provider>
+      </Provider>,
     );
 
     const input = screen.getByPlaceholderText('Enter a new todo');
@@ -53,7 +53,7 @@ describe('TodoList', () => {
     render(
       <Provider store={store}>
         <TodoList />
-      </Provider>
+      </Provider>,
     );
 
     const addButton = screen.getByText('Add Todo');
@@ -66,7 +66,7 @@ describe('TodoList', () => {
     render(
       <Provider store={store}>
         <TodoList />
-      </Provider>
+      </Provider>,
     );
 
     const firstTodoCheckbox = screen.getAllByRole('checkbox')[0];

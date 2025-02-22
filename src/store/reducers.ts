@@ -17,11 +17,11 @@ const todoSlice = createSlice({
       state.push({
         id: Date.now(),
         text: action.payload,
-        completed: false
+        completed: false,
       });
     },
     toggleTodo: (state, action: PayloadAction<number>) => {
-      const todo = state.find(t => t.id === action.payload);
+      const todo = state.find((t) => t.id === action.payload);
       if (todo) {
         todo.completed = !todo.completed;
       }
