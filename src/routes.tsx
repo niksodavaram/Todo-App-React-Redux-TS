@@ -1,3 +1,4 @@
+// src/routes.ts
 import React from 'react';
 import TodoList from './components/TodoList';
 
@@ -9,9 +10,8 @@ interface Route {
 const routes: Route[] = [
   {
     path: '/',
-    element: <TodoList />,
+    element: <TodoList />,  
   },
-  // Add more routes as needed
 ];
 
 export default routes;

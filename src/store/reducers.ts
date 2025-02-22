@@ -1,4 +1,5 @@
-import { ADD_TODO, TOGGLE_TODO, TodoActionTypes } from './actions';
+// reducers.ts
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface Todo {
   id: number;
@@ -6,29 +7,27 @@ export interface Todo {
   completed: boolean;
 }
 
-export interface TodoState {
-  todos: Todo[];
-}
+const initialState: Todo[] = [];
 
-const initialState: TodoState = {
-  todos: [],
-};
+const todoSlice = createSlice({
+  name: 'todos',
+  initialState,
+  reducers: {
+    addTodo: (state, action: PayloadAction<string>) => {
+      state.push({
+        id: Date.now(),
+        text: action.payload,
+        completed: false
+      });
+    },
+    toggleTodo: (state, action: PayloadAction<number>) => {
+      const todo = state.find(t => t.id === action.payload);
+      if (todo) {
+        todo.completed = !todo.completed;
+      }
+    },
+  },
+});
 
-export default function rootReducer(state = initialState, action: TodoActionTypes): TodoState {
-  switch (action.type) {
-    case ADD_TODO:
-      return {
-        ...state,
-        todos: [...state.todos, { id: Date.now(), text: action.payload, completed: false }],
-      };
-    case TOGGLE_TODO:
-      return {
-        ...state,
-        todos: state.todos.map(todo =>
-          todo.id === action.payload ? { ...todo, completed: !todo.completed } : todo
-        ),
-      };
-    default:
-      return state;
-  }
-}
+export const { addTodo, toggleTodo } = todoSlice.actions;
+export default todoSlice.reducer;
