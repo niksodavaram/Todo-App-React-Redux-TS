@@ -1,5 +1,5 @@
 // src/App.tsx
-import React from 'react';
+import React, { JSX } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import TodoList from './components/TodoList';
 import routes from './routes';
