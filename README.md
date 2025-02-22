@@ -21,6 +21,7 @@ A simple todo list application built with React, TypeScript, and Redux, showcasi
 - CSS
 
 ## Project Structure
+```mermaid
 todo-app/
 ├── public/
 │ └── index.html
@@ -44,7 +45,7 @@ todo-app/
 ├── README.md
 ├── tsconfig.json
 └── webpack.config.js
-
+```
 ## Getting Started
 
 1. Clone the repository:
