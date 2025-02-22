@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Start Development Server",
+        "type": "node",
+        "request": "launch",
+        "runtimeArgs": ["--inspect", "webpack", "serve", "--mode", "development"],
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen"
+      }
+    ]
+  }
